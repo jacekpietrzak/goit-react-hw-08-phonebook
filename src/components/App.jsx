@@ -1,6 +1,6 @@
 import { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { refreshUser } from '../redux/auth/authOperations';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
@@ -51,6 +51,7 @@ function App() {
           }
         />
       </Route>
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 }
