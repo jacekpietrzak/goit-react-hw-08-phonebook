@@ -4,6 +4,8 @@ import { setStatusFilter } from '../../redux/phonebook/filterSlice';
 
 import css from './Filter.module.css';
 
+import { TextField } from '@mui/material';
+
 const Filter = () => {
   const dispatch = useDispatch();
 
@@ -19,13 +21,13 @@ const Filter = () => {
       <label className={css.label} htmlFor="filter">
         Find contacts by name
       </label>
-      <input
-        className={css.input}
+      <TextField
         id="filter"
         type="text"
+        label="type to filter"
         name="filter"
         onChange={handleFilter}
-        ref={filterInputRef}
+        inputRef={filterInputRef}
       />
     </div>
   );

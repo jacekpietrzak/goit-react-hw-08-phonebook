@@ -15,7 +15,6 @@ export const StyledSection = styled.section`
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding: 30px 0px;
 `;
 
 export const StyledContainer = styled.div`

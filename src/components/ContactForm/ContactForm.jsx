@@ -7,6 +7,8 @@ import {
 
 import css from './ContactForm.module.css';
 
+import { Button, TextField } from '@mui/material';
+
 const ContactForm = () => {
   const contacts = useSelector(selectContacts);
   const inputNameRef = useRef(null);
@@ -43,38 +45,32 @@ const ContactForm = () => {
   return (
     <form className={css.form} onSubmit={handleSubmit}>
       <section className={css.section}>
-        <label className={css.label} htmlFor="name">
-          Name
-        </label>
-        <input
-          className={css.input}
+        <TextField
+          required
           type="text"
           id="name"
           name="name"
+          label="Name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-          ref={inputNameRef}
+          inputRef={inputNameRef}
         />
       </section>
       <section className={css.section}>
-        <label className={css.label} htmlFor="tel">
-          Number
-        </label>
-        <input
-          className={css.input}
+        <TextField
+          required
           id="tel"
           type="tel"
           name="number"
+          label="Phone number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-          ref={inputNumberRef}
+          inputRef={inputNumberRef}
         />
       </section>
-      <button className={css.button} type="submit">
+      <Button variant="contained" type="submit">
         Add contact
-      </button>
+      </Button>
     </form>
   );
 };

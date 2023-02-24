@@ -17,7 +17,7 @@
 }
 
 .button {
-  text-transform: initial;
+  text-transform: capitalize;
   background-color: #fff;
   border: solid 1px #333;
   border-radius: 5px;

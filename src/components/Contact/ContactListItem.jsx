@@ -1,8 +1,16 @@
 import { useDispatch } from 'react-redux';
 import { removeContact } from '../../redux/phonebook/contactsSlice';
 
-import css from './ContactListItem.module.css';
+// import css from './ContactListItem.module.css';
 import PropTypes from 'prop-types';
+
+import {
+  IconButton,
+  ListItem,
+  ListItemText,
+  ListItemButton,
+} from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const Contact = ({ contact }) => {
   const dispatch = useDispatch();
@@ -11,17 +19,22 @@ const Contact = ({ contact }) => {
   };
 
   return (
-    <li className={css.contact}>
-      {contact.name}: {contact.number}
-      <button
-        className={css.button}
-        type="button"
-        id={contact.id}
-        onClick={() => handleRemoveContact(contact.id)}
-      >
-        Delete
-      </button>
-    </li>
+    <ListItem disablePadding>
+      <ListItemButton>
+        <ListItemText primary={`${contact.name}: ${contact.number}`} />
+        <IconButton
+          aria-label="delete"
+          type="button"
+          variant="contained"
+          color="error"
+          size="small"
+          id={contact.id}
+          onClick={() => handleRemoveContact(contact.id)}
+        >
+          <DeleteIcon />
+        </IconButton>
+      </ListItemButton>
+    </ListItem>
   );
 };
 
@@ -29,7 +42,7 @@ Contact.propTypes = {
   contact: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    phone: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
   }),
 };
 

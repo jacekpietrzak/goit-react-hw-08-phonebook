@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/authOperations';
 import { useAuth } from 'hooks/useAuth';
 import { StyledWrapper } from './UserMenu.styled';
+import { Button } from '@mui/material';
 
 export function UserMenu() {
   const dispatch = useDispatch();
@@ -9,7 +10,15 @@ export function UserMenu() {
   return (
     <StyledWrapper>
       <p>Welcome {user.name}</p>
-      <button onClick={() => dispatch(logOut())}>Logout</button>
+      <Button
+        color="error"
+        variant="outlined"
+        size="small"
+        onClick={() => dispatch(logOut())}
+        type="button"
+      >
+        Log out
+      </Button>
     </StyledWrapper>
   );
 }

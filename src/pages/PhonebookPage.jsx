@@ -11,7 +11,6 @@ import {
 import ContactForm from '../components/ContactForm/ContactForm';
 import Filter from '../components/Filter/Filter';
 import ContactList from '../components/ContactList/ContactList';
-import css from '../components/App.module.css';
 
 export default function PhonebookPage() {
   const dispatch = useDispatch();
@@ -25,9 +24,7 @@ export default function PhonebookPage() {
 
   return (
     <>
-      <h1 className={css.h1}>Phonebook</h1>
       <ContactForm />
-      <h2 className={css.h2}>Contacts</h2>
       <Filter />
       {isLoading && <div>Loading...</div>}
       {error && <div>{error}</div>}

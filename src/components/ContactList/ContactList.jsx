@@ -2,8 +2,9 @@ import { useSelector } from 'react-redux';
 import { selectContacts } from '../../redux/phonebook/contactsSlice';
 import { selectFilter } from 'redux/phonebook/filterSlice';
 
-import css from './ContactList.module.css';
-import Contact from '../Contact/ContactListItem';
+import ContactListItem from '../Contact/ContactListItem';
+
+import { List } from '@mui/material';
 
 const ContactList = () => {
   const contacts = useSelector(selectContacts);
@@ -14,13 +15,11 @@ const ContactList = () => {
   );
 
   return (
-    <div>
-      <ul className={css.list}>
-        {filteredContacts.map(contact => {
-          return <Contact contact={contact} key={contact.id} />;
-        })}
-      </ul>
-    </div>
+    <List>
+      {filteredContacts.map(contact => {
+        return <ContactListItem contact={contact} key={contact.id} />;
+      })}
+    </List>
   );
 };
 
