@@ -1,6 +1,7 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useRef } from 'react';
 import { setStatusFilter } from '../../redux/phonebook/filterSlice';
+import { selectFilter } from 'redux/phonebook/filterSlice';
 
 import css from './Filter.module.css';
 
@@ -10,6 +11,8 @@ const Filter = () => {
   const dispatch = useDispatch();
 
   const filterInputRef = useRef(null);
+  const filter = useSelector(selectFilter);
+  const filterStatus = filter.status;
 
   const handleFilter = () => {
     const filter = filterInputRef.current.value.toLowerCase();
@@ -26,6 +29,7 @@ const Filter = () => {
         type="text"
         label="type to filter"
         name="filter"
+        value={filterStatus}
         onChange={handleFilter}
         inputRef={filterInputRef}
       />
