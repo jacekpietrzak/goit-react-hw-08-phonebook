@@ -19,7 +19,7 @@ const Contact = ({ contact }) => {
   };
 
   return (
-    <ListItem disablePadding>
+    <ListItem disablePadding="true">
       <ListItemButton>
         <ListItemText primary={`${contact.name}: ${contact.number}`} />
         <IconButton
